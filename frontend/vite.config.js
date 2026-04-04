@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 // e.g. if your repo is github.com/goldno/my-portfolio, set base: '/my-portfolio/'
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio/',   // <-- change this to match your GitHub repo name
+  base: '/portfolio_website/',   // GitHub repo name
   server: {
     proxy: {
       '/api': 'http://localhost:3001',
