@@ -129,12 +129,29 @@ function Skills() {
 
 // ── Projects ──────────────────────────────────────────────────────────────────
 function Projects() {
+  const [projects, setProjects] = useState(config.projects);
+
+  useEffect(() => {
+    fetch(`${config.backendUrl}/api/github-repos`)
+      .then((r) => r.json())
+      .then((repos) => {
+        const merged = config.projects.map((project) => {
+          const live = repos.find((r) => r.name === project.repoName);
+          return live ? { ...project, github: live.url } : project;
+        });
+        setProjects(merged);
+      })
+      .catch(() => {
+        // fall back to static config on error
+      });
+  }, []);
+
   return (
     <section id="projects" className="section">
       <div className="container">
         <SectionLabel>Projects</SectionLabel>
         <div className="projects__grid">
-          {config.projects.map((project) => (
+          {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
@@ -198,10 +215,30 @@ function Education() {
 
 // ── Footer ────────────────────────────────────────────────────────────────────
 function Footer() {
+  const [visits, setVisits] = useState(null);
+
+  useEffect(() => {
+    // Count this visit once per browser session
+    const key = "visited";
+    const endpoint = sessionStorage.getItem(key) ? "/api/visits" : "/api/visit";
+    const method = sessionStorage.getItem(key) ? "GET" : "POST";
+
+    fetch(`${config.backendUrl}${endpoint}`, { method })
+      .then((r) => r.json())
+      .then((data) => {
+        if (!sessionStorage.getItem(key)) sessionStorage.setItem(key, "1");
+        setVisits(data.count);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <footer className="footer">
       <div className="container footer__inner">
         <p className="footer__copy">© {new Date().getFullYear()} {config.name}</p>
+        {visits !== null && (
+          <p className="footer__visits">{visits.toLocaleString()} visitors</p>
+        )}
         <div className="footer__links">
           <a href={config.github} target="_blank" rel="noreferrer" aria-label="GitHub"><GithubIcon /></a>
           <a href={config.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedinIcon /></a>

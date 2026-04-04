@@ -1,8 +1,14 @@
 // ============================================================
-//  PORTFOLIO CONFIG — edit everything here, nothing else needed
+//  PORTFOLIO CONFIG — edit this file to update all portfolio info
 // ============================================================
 
 export const config = {
+
+  // --- Backend ---
+  backendUrl: "https://portfoliowebsite-production-1c70.up.railway.app",
+
+  // --- GitHub repos to show in the Projects section (exact repo names) ---
+  pinnedRepos: ["tcgdex", "portfolio_website"],
 
   // --- Personal Info ---
   name: "Noah Goldberg",
@@ -44,22 +50,23 @@ complex data problems and building things that actually work at scale.`,
 
   // --- Projects ---
   // Add or remove projects here. Featured projects appear first.
+  // Each repoName must match the exact GitHub repo name and be listed in pinnedRepos above.
   projects: [
     {
+      repoName: "tcgdex",
       title: "TCG Discord Bot",
       description:
         "A full-featured trading card game bot for Discord. Lets users collect, trade, and battle with cards — backed by a Node.js backend and PostgreSQL database hosted on Railway.",
       tech: ["Node.js", "PostgreSQL", "Discord.js", "Railway"],
-      github: "https://github.com/goldno",  // update to specific repo when ready
       live: null,
       featured: true,
     },
     {
+      repoName: "portfolio_website",
       title: "This Portfolio",
       description:
         "A clean, minimal developer portfolio built with React on the frontend and Node.js/Express on the backend. Deployed with the frontend on GitHub Pages and the backend on Railway.",
       tech: ["React", "Node.js", "Express", "GitHub Pages", "Railway"],
-      github: "https://github.com/goldno",  // update to specific repo when ready
       live: null,
       featured: true,
     },
