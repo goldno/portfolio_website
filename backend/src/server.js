@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import pg from "pg";
+import pkg from "pg";
+const { Pool } = pkg;
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,10 +10,12 @@ app.use(cors());
 app.use(express.json());
 
 // ── Database ──────────────────────────────────────────────────────────────────
-const pool = new pg.Pool({
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.DATABASE_URL?.includes("railway.internal") ? false : { rejectUnauthorized: false },
 });
+
+pool.on("error", (err) => console.error("Unexpected pool error:", err.message));
 
 async function initDb() {
   await pool.query(`
