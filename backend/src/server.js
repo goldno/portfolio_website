@@ -11,7 +11,7 @@ app.use(express.json());
 // ── Database ──────────────────────────────────────────────────────────────────
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false,
+  ssl: process.env.DATABASE_URL?.includes("railway.internal") ? false : { rejectUnauthorized: false },
 });
 
 async function initDb() {
@@ -25,7 +25,7 @@ async function initDb() {
   `);
 }
 
-initDb().catch(console.error);
+initDb().catch((err) => console.error("DB init failed:", err.message));
 
 // ── Visitor Counter ───────────────────────────────────────────────────────────
 // POST /api/visit  — increment and return the new total
