@@ -5,7 +5,7 @@
 export const config = {
 
   // --- Backend ---
-  backendUrl: "https://portfoliowebsite-production-1c70.up.railway.app",
+  backendUrl: "https://portfoliowebsite-production-af14.up.railway.app",
 
   // --- GitHub repos to show in the Projects section (exact repo names) ---
   pinnedRepos: ["tcgdex", "portfolio_website"],
