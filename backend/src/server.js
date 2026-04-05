@@ -13,10 +13,10 @@ app.use(express.json());
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.DATABASE_URL?.includes("railway.internal") ? false : { rejectUnauthorized: false },
-  options: "-c search_path=portfolio",
 });
 
 pool.on("error", (err) => console.error("Unexpected pool error:", err.message));
+pool.on("connect", (client) => client.query("SET search_path TO portfolio"));
 
 async function initDb() {
   await pool.query(`

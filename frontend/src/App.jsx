@@ -227,7 +227,7 @@ function Footer() {
       .then((r) => r.json())
       .then((data) => {
         if (!sessionStorage.getItem(key)) sessionStorage.setItem(key, "1");
-        setVisits(data.count);
+        setVisits(data.count ?? null);
       })
       .catch(() => {});
   }, []);
