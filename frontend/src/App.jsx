@@ -31,7 +31,7 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["About", "Skills", "Projects", "Education"];
+  const links = ["About", "Skills", "Professional Experience", "Personal Projects", "Education"];
 
   return (
     <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
@@ -39,7 +39,7 @@ function Nav() {
       <ul className="nav__links">
         {links.map((l) => (
           <li key={l}>
-            <a href={`#${l.toLowerCase()}`} className="nav__link">{l}</a>
+            <a href={`#${l.toLowerCase().replace(" ", "-")}`} className="nav__link">{l}</a>
           </li>
         ))}
       </ul>
@@ -57,8 +57,7 @@ function Hero() {
         <p className="hero__title">{config.title}</p>
         <p className="hero__tagline">{config.tagline}</p>
         <div className="hero__actions">
-          <a href="#projects" className="btn btn--primary">View Projects</a>
-          <a href={config.github} target="_blank" rel="noreferrer" className="btn btn--ghost">
+<a href={config.github} target="_blank" rel="noreferrer" className="btn btn--ghost">
             <GithubIcon /> GitHub
           </a>
           <a href={config.linkedin} target="_blank" rel="noreferrer" className="btn btn--ghost">
@@ -147,9 +146,10 @@ function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="section">
+    <section id="personal-projects" className="section">
       <div className="container">
-        <SectionLabel>Projects</SectionLabel>
+        <SectionLabel>Personal Projects</SectionLabel>
+        <p className="section__subtitle">{config.projectsSubtitle}</p>
         <div className="projects__grid">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
@@ -184,6 +184,35 @@ function ProjectCard({ project }) {
         )}
       </div>
     </div>
+  );
+}
+
+// ── Work History ──────────────────────────────────────────────────────────────
+function WorkHistory() {
+  return (
+    <section id="professional-experience" className="section section--alt">
+      <div className="container">
+        <SectionLabel>Professional Experience</SectionLabel>
+        <div className="work__list">
+          {config.work.map((job) => (
+            <div key={`${job.company}-${job.years}`} className="work-card">
+              <div className="work-card__header">
+                <div className="work-card__left">
+                  <h3 className="work-card__title">{job.title}</h3>
+                  <p className="work-card__company">{job.company} &mdash; {job.location}</p>
+                </div>
+                <span className="work-card__years">{job.years}</span>
+              </div>
+              <ul className="work-card__bullets">
+                {job.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -267,6 +296,7 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
+        <WorkHistory />
         <Projects />
         <Education />
       </main>

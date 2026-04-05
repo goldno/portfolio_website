@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import pkg from "pg";
@@ -64,7 +65,7 @@ app.get("/api/github-repos", async (_req, res) => {
   try {
     const username = "goldno";
     const response = await fetch(
-      `https://api.github.com/users/${username}/repos?sort=updated&per_page=10`,
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
       {
         headers: {
           Accept: "application/vnd.github.v3+json",
