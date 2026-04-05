@@ -5,7 +5,7 @@
 export const config = {
 
   // --- Backend ---
-  backendUrl: "http://localhost:3001",
+  backendUrl: import.meta.env.VITE_BACKEND_URL ?? "https://portfoliowebsite-production-af14.up.railway.app",
 
   // --- Personal Info ---
   name: "Noah Goldberg",
