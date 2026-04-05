@@ -56,6 +56,7 @@ export const config = {
       description:
         "Discord Bot that lets users search for Pokémon and other trading cards using multiple open source APIs. Displays card information and current prices. Backed by a Node.js backend and PostgreSQL database hosted on Railway.",
       tech: ["Node.js", "PostgreSQL", "Discord.js", "Railway"],
+      github: "https://github.com/goldno/TCGDex",
       live: null,
       featured: true,
     },
@@ -63,8 +64,9 @@ export const config = {
       repoName: "tcgdex-website",
       title: "TCGDex Website",
       description:
-        "A web app for browsing and tracking Pokémon TCG card prices over time. Features card search, set filtering, sortable columns, and price history charts. Build using the same APIs as the TCGDex Discord Bot. Frontend built with React and Vite, deployed on GitHub Pages. Backend built with Node.js and PostgreSQL, deployed on Railway.",
+        "A web app for browsing and tracking Pokémon TCG card prices over time. Features card search, set filtering, sortable columns, and price history charts, using the same APIs as the TCGDex Discord Bot. Frontend built with React and Vite, deployed on GitHub Pages. Backend built with Node.js and PostgreSQL, deployed on Railway.",
       tech: ["React", "Vite", "Node.js", "PostgreSQL", "GitHub Pages", "Railway"],
+      github: "https://github.com/goldno/tcgdex-website",
       live: "https://goldno.github.io/tcgdex-website/",
       featured: true,
     },
@@ -74,6 +76,7 @@ export const config = {
       description:
         "A clean, minimal developer portfolio built with React on the frontend and Node.js/Express on the backend. Deployed the frontend on GitHub Pages and the backend on Railway.",
       tech: ["React", "Node.js", "Express", "GitHub Pages", "Railway"],
+      github: "https://github.com/goldno/portfolio_website",
       live: null,
       featured: true,
     },
