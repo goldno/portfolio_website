@@ -71,6 +71,16 @@ export const config = {
       featured: true,
     },
     {
+      repoName: "tcgdex-api",
+      title: "TCGDex API",
+      description:
+        "A standalone REST API that powers the TCGDex Website. Handles card data fetching, price tracking, and database interactions. Built with Node.js and PostgreSQL, deployed on Railway.",
+      tech: ["Node.js", "PostgreSQL", "REST API", "Railway"],
+      github: "https://github.com/goldno/tcgdex-api",
+      live: null,
+      featured: true,
+    },
+    {
       repoName: "portfolio_website",
       title: "This Portfolio Website!",
       description:
