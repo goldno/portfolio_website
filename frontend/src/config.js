@@ -10,7 +10,7 @@ export const config = {
   // --- Personal Info ---
   name: "Noah Goldberg",
   title: "Software Developer",
-  tagline: "Backend-focused developer with a passion for integration, automation, and AI.",
+  tagline: "Developer with a passion for integration, automation, and AI.",
   email: "goldno@hotmail.com",
   phone: "551-427-2767",
   location: "Hillsborough, NJ",
@@ -46,7 +46,11 @@ export const config = {
   ],
 
   // --- Projects ---
-  projectsSubtitle: "I enjoy developing systems that enrich my hobbies.",
+  projectsSubtitle: 
+  "I enjoy developing systems that enrich my hobbies. " +
+  "Most of my recent projects are related to Trading Card Games (TCG), which have a vibrant ecosystem of open source APIs and data sources that I leverage to build useful tools for myself and other fans. " +
+  "Additionally, I am developing a database of historical card prices, which is currently powering the TCGDex Website and API project listed below. " +
+  "Feel free to check out the code on GitHub and links to the live sites! ",
   // Add or remove projects here. Featured projects appear first.
   // Each repoName must match the exact GitHub repo name and be listed in pinnedRepos above.
   projects: [
@@ -64,8 +68,8 @@ export const config = {
       repoName: "tcgdex-website",
       title: "TCGDex Website",
       description:
-        "A web app for browsing and tracking Pokémon TCG card prices over time. Features card search, set filtering, sortable columns, and price history charts, using the same APIs as the TCGDex Discord Bot. Frontend built with React and Vite, deployed on GitHub Pages. Backend built with Node.js and PostgreSQL, deployed on Railway.",
-      tech: ["React", "Vite", "Node.js", "PostgreSQL", "GitHub Pages", "Railway"],
+        "A web app for browsing and tracking Pokémon TCG card prices over time. Features card search, set filtering, and price history charts. Data retrieved from the TCGDex API. Frontend built with React and Vite, deployed on GitHub Pages. Backend built with Node.js.",
+      tech: ["React", "Vite", "Node.js", "PostgreSQL", "GitHub Pages"],
       github: "https://github.com/goldno/tcgdex-website",
       live: "https://goldno.github.io/tcgdex-website/",
       featured: true,
@@ -74,7 +78,7 @@ export const config = {
       repoName: "tcgdex-api",
       title: "TCGDex API",
       description:
-        "A standalone REST API that powers the TCGDex Website. Handles card data fetching, price tracking, and database interactions. Built with Node.js and PostgreSQL, deployed on Railway.",
+        "A standalone REST API that powers the TCGDex Website. Handles card data fetching, price tracking, and database interactions. Connected to a PostgreSQL database that stores historical card prices, which is updated daily via a scheduled job that retrieves the latest prices from external APIs. Built with Node.js and deployed on Railway.",
       tech: ["Node.js", "PostgreSQL", "REST API", "Railway"],
       github: "https://github.com/goldno/tcgdex-api",
       live: null,
