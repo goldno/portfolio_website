@@ -9,8 +9,8 @@ export const config = {
 
   // --- Personal Info ---
   name: "Noah Goldberg",
-  title: "Software Developer",
-  tagline: "Developer with a passion for integration, automation, and AI.",
+  title: "Software Developer with a passion for integration, automation, and AI.",
+  tagline: "",
   email: "goldno@hotmail.com",
   phone: "551-427-2767",
   location: "Hillsborough, NJ",
